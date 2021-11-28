@@ -5,8 +5,8 @@ import Problem from "./problem";
 function quiz() {
   console.log(problems);
   return (
-    <>
-      <h1>
+    <div className=" max-w-sm mr-auto ml-auto">
+      <h1 className="text-2xl md:text-4xl font-bold my-4">
         『xxxx講座』
         <br />
         理解度クイズ
@@ -24,7 +24,7 @@ function quiz() {
         // console.log(`${index + 1}番目は${problem.short}です`)
       ))}
       ;
-    </>
+    </div>
   );
 }
 
