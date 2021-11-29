@@ -1,9 +1,17 @@
 import React from "react";
 import { problems } from "../lib/quiz";
 import Problem from "./problem";
+import { useState } from "react";
 
 function quiz() {
-  console.log(problems);
+  const [answers, setAnswers] = useState<Array<string>>(["-"]);
+  const setAnswer = (index: number, answer: string) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = answer;
+    setAnswers(newAnswers);
+    console.log(newAnswers);
+  };
+
   return (
     <div className="max-w-sm mr-auto ml-auto">
       <div className="bg-indigo-50 rounded-lg py-2 px-4">
@@ -22,7 +30,12 @@ function quiz() {
         </p>
       </div>
       {problems.map((problem, index) => (
-        <Problem key={index} problem={problem.text} index={index} />
+        <Problem
+          key={index}
+          problem={problem.text}
+          question_no={index + 1}
+          setAnswer={setAnswer}
+        />
         // console.log(`${index + 1}番目は${problem.short}です`)
       ))}
       ;
