@@ -5,15 +5,14 @@ import Quiz from "../components/quiz";
 
 const Home: NextPage = () => {
   return (
-    <>
+    <div className="bg-green-100 text-gray-600 font-mono">
       <Head>
         <title>Quiz</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Container>
         <Quiz />
       </Container>
-    </>
+    </div>
   );
 };
 
