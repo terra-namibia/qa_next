@@ -6,7 +6,7 @@ function quiz() {
   console.log(problems);
   return (
     <div className="max-w-sm mr-auto ml-auto">
-      <div className="bg-indigo-50 rounded py-2 px-4">
+      <div className="bg-indigo-50 rounded-lg py-2 px-4">
         <h1 className="text-2xl md:text-4xl font-bold">
           『xxxx講座』
           <br />
