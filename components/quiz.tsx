@@ -5,9 +5,9 @@ import Problem from "./problem";
 function quiz() {
   console.log(problems);
   return (
-    <div className=" max-w-sm mr-auto ml-auto">
-      <div className="bg-yellow-100 rounded py-2 px-4 my-4">
-        <h1 className="text-2xl md:text-4xl font-bold my-4">
+    <div className="max-w-sm mr-auto ml-auto">
+      <div className="bg-indigo-50 rounded py-2 px-4">
+        <h1 className="text-2xl md:text-4xl font-bold">
           『xxxx講座』
           <br />
           理解度クイズ
