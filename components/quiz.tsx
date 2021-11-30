@@ -3,6 +3,18 @@ import { questions } from "../lib/quiz";
 import Question from "./question";
 import { useState } from "react";
 
+const SubmitButton = ({ children, onClick }) => (
+  <button
+    onClick={onClick}
+    className="border border-blue-500 font-semibold rounded py-2 px-4 my-4 w-full text-white bg-blue-500 hover:bg-blue-700 hover:text-white hover:border-transparent"
+  >
+    {children}
+  </button>
+);
+const submit = () => {
+  console.log("submit");
+};
+
 function quiz() {
   const [answers, setAnswers] = useState<Array<string>>(["-"]);
   const setAnswer = (index: number, answer: string) => {
@@ -38,7 +50,16 @@ function quiz() {
           setAnswer={setAnswer}
         />
       ))}
-      ;
+      <div className="bg-indigo-50 rounded-lg py-2 px-4">
+        <p>
+          質問はこれで以上です！
+          <br />
+          結果をチェックしてみましょう。
+        </p>
+        <p>
+          <SubmitButton onClick={submit}>何問正解したかチェック！</SubmitButton>
+        </p>
+      </div>
     </div>
   );
 }
