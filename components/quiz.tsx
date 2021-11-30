@@ -32,8 +32,9 @@ function quiz() {
       {problems.map((problem, index) => (
         <Problem
           key={index}
-          problem={problem.text}
           question_no={index + 1}
+          problem={problem.text}
+          answers={answers}
           setAnswer={setAnswer}
         />
         // console.log(`${index + 1}番目は${problem.short}です`)

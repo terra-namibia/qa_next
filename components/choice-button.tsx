@@ -1,17 +1,23 @@
 type Props = {
-  onClick: (index: number, answer: string) => void;
+  setAnswer: (index: number, answer: string) => void;
   index: number;
   answer: string;
+  isSelected: boolean;
   children: string;
 };
 
 const ChoiceButton = (props: Props) => {
-  const { onClick, index, answer, children } = props;
+  const { setAnswer, index, answer, isSelected, children } = props;
+  const style_normal =
+    "text-blue-700 hover:bg-blue-500 hover:text-white hover:border-transparent";
+  const style_choiced = "text-white bg-blue-500 border-transparent";
 
   return (
     <button
-      onClick={() => onClick(index, answer)}
-      className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border border-blue-500 hover:border-transparent rounded py-2 px-4 mb-4 w-full"
+      onClick={() => setAnswer(index, answer)}
+      className={`${
+        isSelected ? style_choiced : style_normal
+      } border border-blue-500 font-semibold rounded py-2 px-4 mb-4 w-full`}
     >
       {children}
     </button>
