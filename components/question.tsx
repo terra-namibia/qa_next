@@ -1,19 +1,19 @@
 import ChoiceButton from "./choice-button";
 type Props = {
   question_no: number;
-  problem: string;
+  question: string;
   answers: Array<string>;
   setAnswer: (index: number, answer: string) => void;
 };
 
-const Problem = (props: Props) => {
-  const { question_no, problem, answers, setAnswer } = props;
+const Question = (props: Props) => {
+  const { question_no, question, answers, setAnswer } = props;
 
   return (
     <div className="bg-indigo-50 rounded-lg py-4 px-4 my-4">
       <h3 className="text-xl md:text-2xl font-bold tracking-tighter leading-tight md:pr-8 my-4">
         <span className="text-gray-700">質問: {question_no} </span>
-        {problem}
+        {question}
       </h3>
       <div className="flex flex-col">
         <ChoiceButton
@@ -45,4 +45,4 @@ const Problem = (props: Props) => {
   );
 };
 
-export default Problem;
+export default Question;

@@ -1,6 +1,6 @@
 import React from "react";
-import { problems } from "../lib/quiz";
-import Problem from "./problem";
+import { questions } from "../lib/quiz";
+import Question from "./question";
 import { useState } from "react";
 
 function quiz() {
@@ -29,15 +29,14 @@ function quiz() {
           できるでしょうか？
         </p>
       </div>
-      {problems.map((problem, index) => (
-        <Problem
+      {questions.map((question, index) => (
+        <Question
           key={index}
           question_no={index + 1}
-          problem={problem.text}
+          question={question.text}
           answers={answers}
           setAnswer={setAnswer}
         />
-        // console.log(`${index + 1}番目は${problem.short}です`)
       ))}
       ;
     </div>
