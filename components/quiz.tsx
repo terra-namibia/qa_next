@@ -1,7 +1,7 @@
 import React from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 
 function quiz() {
   const [answers, setAnswers] = useState<Array<string>>([]);
@@ -13,8 +13,12 @@ function quiz() {
   };
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
+  type Props = {
+    children?: ReactNode;
+    answers: Array<string>;
+  };
 
-  const SubmitButton = ({ children, answers }) => (
+  const SubmitButton = ({ children, answers }: Props) => (
     <button
       onClick={() => submit(answers)}
       className="border border-blue-500 font-semibold rounded py-2 px-4 my-4 w-full text-white bg-blue-500 hover:bg-blue-700 hover:text-white hover:border-transparent"
