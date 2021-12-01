@@ -1,7 +1,8 @@
 import React from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
-import { useState, ReactNode } from "react";
+import { useState } from "react";
+import SubmitButton from "./submit-button";
 
 function quiz() {
   const [answers, setAnswers] = useState<Array<string>>([]);
@@ -13,19 +14,6 @@ function quiz() {
   };
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
-  type Props = {
-    children?: ReactNode;
-    answers: Array<string>;
-  };
-
-  const SubmitButton = ({ children, answers }: Props) => (
-    <button
-      onClick={() => submit(answers)}
-      className="border border-blue-500 font-semibold rounded py-2 px-4 my-4 w-full text-white bg-blue-500 hover:bg-blue-700 hover:text-white hover:border-transparent"
-    >
-      {children}
-    </button>
-  );
   const submit = (answers: Array<string>) => {
     const score: number = answers.filter((answer, index) => {
       return questions[index].answer === answer;
@@ -68,7 +56,7 @@ function quiz() {
           結果をチェックしてみましょう。
         </p>
         <p>
-          <SubmitButton answers={answers}>
+          <SubmitButton answers={answers} submit={submit}>
             何問正解したかチェック！
           </SubmitButton>
         </p>
