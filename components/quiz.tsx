@@ -12,6 +12,7 @@ function quiz() {
     setAnswers(newAnswers);
     console.log(newAnswers);
   };
+
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const submit = (answers: Array<string>) => {
