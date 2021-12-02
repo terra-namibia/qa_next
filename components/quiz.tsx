@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import SubmitButton from "./submit-button";
 
 function quiz() {
@@ -24,6 +24,17 @@ function quiz() {
     setScore(score);
   };
 
+  const inputEl = useRef(null);
+  const [name, setName] = useState("");
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setName(e.target.value);
+  const handleOnClick = () => {
+    inputEl.current.focus();
+    inputEl.current.style.color = "red";
+  };
+  const countRef = useRef(0);
+  const handleOnClick2 = () => countRef.current++;
+
   return (
     <div className="max-w-sm mr-auto ml-auto">
       <div className="bg-indigo-50 rounded-lg py-2 px-4">
@@ -40,6 +51,19 @@ function quiz() {
           <strong>4問以上正解</strong>
           できるでしょうか？
         </p>
+
+        <div>
+          <input
+            type="text"
+            ref={inputEl}
+            value={name}
+            onChange={handleOnChange}
+          />
+          <p>名前：{name}</p>
+          <button onClick={handleOnClick}>フォーカスを当てる</button>
+          <div>{countRef.current}</div>
+          <button onClick={handleOnClick2}>Count2アップ</button>
+        </div>
       </div>
       {questions.map((question, index) => (
         <Question
