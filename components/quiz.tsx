@@ -1,10 +1,11 @@
 import React from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import SubmitButton from "./submit-button";
 
 function quiz() {
+  const refs = questions.map(() => useRef<HTMLDivElement>(null!));
   const [answers, setAnswers] = useState<Array<string>>([]);
   const setAnswer = (index: number, answer: string) => {
     const newAnswers = [...answers];
@@ -48,6 +49,7 @@ function quiz() {
           question={question.text}
           answers={answers}
           setAnswer={setAnswer}
+          refs={refs}
         />
       ))}
       <div className="text-xl text-center bg-indigo-50 rounded-lg py-2 px-4">
