@@ -27,7 +27,7 @@ function quiz() {
 
   return (
     <div className="max-w-sm mr-auto ml-auto">
-      <div className="bg-indigo-50 rounded-lg py-2 px-4">
+      <section className="bg-indigo-50 rounded-lg py-2 px-4">
         <h1 className="text-2xl md:text-4xl font-bold">
           『xxxx講座』
           <br />
@@ -41,7 +41,7 @@ function quiz() {
           <strong>4問以上正解</strong>
           できるでしょうか？
         </p>
-      </div>
+      </section>
       {questions.map((question, index) => (
         <Question
           key={index}
@@ -52,7 +52,7 @@ function quiz() {
           refs={refs}
         />
       ))}
-      <div className="text-xl text-center bg-indigo-50 rounded-lg py-2 px-4">
+      <section className="text-xl text-center bg-indigo-50 rounded-lg py-2 px-4 my-10">
         <p>
           質問はこれで以上です！
           <br />
@@ -66,7 +66,7 @@ function quiz() {
         <p className="font-bold tracking-tighter leading-tight md:pr-8 my-4">
           {submitted ? score + "問正解です!" : ""}
         </p>
-      </div>
+      </section>
     </div>
   );
 }

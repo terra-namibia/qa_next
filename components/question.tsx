@@ -20,7 +20,7 @@ const Question = (props: Props) => {
   };
 
   return (
-    <div
+    <section
       ref={refs[question_no]}
       className="bg-indigo-50 rounded-lg py-4 px-4 my-4"
     >
@@ -57,7 +57,7 @@ const Question = (props: Props) => {
           cc
         </ChoiceButton>
       </div>
-    </div>
+    </section>
   );
 };
 
