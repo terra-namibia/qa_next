@@ -21,6 +21,12 @@ function quiz() {
       return questions[index].answer === answer;
     }).length;
 
+    window.scrollBy({
+      top: 300,
+      left: 0,
+      behavior: "smooth",
+    });
+
     setSubmitted(true);
     setScore(score);
   };
@@ -52,7 +58,7 @@ function quiz() {
           refs={refs}
         />
       ))}
-      <section className="text-xl text-center bg-indigo-50 rounded-lg py-2 px-4 my-10">
+      <section className="text-2xl text-center bg-indigo-50 rounded-lg py-2 px-4 my-10">
         <p>
           質問はこれで以上です！
           <br />
@@ -66,6 +72,19 @@ function quiz() {
         <p className="font-bold tracking-tighter leading-tight md:pr-8 my-4">
           {submitted ? score + "問正解です!" : ""}
         </p>
+      </section>
+      <section className="text-left bg-indigo-50 rounded-lg py-4 px-4 my-4">
+        <h3 className="text-2xl py-2">質問別の結果はこちら！</h3>
+        <ul className="text-xl">
+          {questions.map((question, index) => (
+            <li key={index}>
+              <p>
+                質問{index + 1}:{" "}
+                {question.answer === answers[index] ? "正解" : "不正解"}
+              </p>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );
