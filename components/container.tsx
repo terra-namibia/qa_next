@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Container = ({ children }: Props) => (
-  <main className="py-4 px-4">{children}</main>
+  <section className="bg-gray-50 rounded-lg">{children}</section>
 );
 
 export default Container;
