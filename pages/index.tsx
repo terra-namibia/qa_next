@@ -5,7 +5,7 @@ import Quiz from "../components/quiz";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-green-100 text-gray-600 font-mono">
+    <div className="bg-indigo-100 text-gray-600 font-mono">
       <Head>
         <title>Quiz</title>
       </Head>

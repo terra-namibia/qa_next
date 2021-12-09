@@ -33,7 +33,7 @@ function quiz() {
 
   return (
     <div className="max-w-sm mr-auto ml-auto">
-      <section className="bg-indigo-50 rounded-lg py-2 px-4">
+      <section className="bg-gray-50 rounded-lg py-2 px-4">
         <h1 className="text-2xl md:text-4xl font-bold">
           『xxxx講座』
           <br />
@@ -58,7 +58,7 @@ function quiz() {
           refs={refs}
         />
       ))}
-      <section className="text-2xl text-center bg-indigo-50 rounded-lg py-2 px-4 my-10">
+      <section className="text-2xl text-center bg-gray-50 rounded-lg py-2 px-4 my-10">
         <p>
           質問はこれで以上です！
           <br />
@@ -73,7 +73,7 @@ function quiz() {
           {submitted ? score + "問正解です!" : ""}
         </p>
       </section>
-      <section className="text-left bg-indigo-50 rounded-lg py-4 px-4 my-4">
+      <section className="text-left bg-gray-50 rounded-lg py-4 px-4 my-4">
         <h3 className="text-2xl py-2">質問別の結果はこちら！</h3>
         <ul className="text-xl">
           {questions.map((question, index) => (
