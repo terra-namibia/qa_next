@@ -2,8 +2,10 @@ import React from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
 import { useState, useRef, useCallback } from "react";
-import SubmitButton from "./submit-button";
 import Container from "./container";
+import Intro from "./intro";
+import ResultSummary from "./result-summary";
+import ResultDetail from "./result-detail";
 
 function quiz() {
   const refs = questions.map(() => useRef<HTMLDivElement>(null!));
@@ -35,24 +37,10 @@ function quiz() {
   return (
     <main className="max-w-sm mr-auto ml-auto">
       <Container>
-        <div className="py-2 px-4">
-          <h1 className="text-2xl md:text-4xl font-bold">
-            『xxxx講座』
-            <br />
-            理解度クイズ
-          </h1>
-          <p>作成: xxxx</p>
-          <p>日本や世界に関するクイズです。</p>
-          <p>どの質問も3択です。</p>
-          <p>
-            クイズは全部で6問。
-            <strong>4問以上正解</strong>
-            できるでしょうか？
-          </p>
-        </div>
+        <Intro />
       </Container>
       {questions.map((question, index) => (
-        <Container>
+        <Container key={index}>
           <Question
             key={index}
             question_no={index}
@@ -64,44 +52,16 @@ function quiz() {
         </Container>
       ))}
       <Container>
-        <div className="text-2xl text-center py-2 px-4 my-10">
-          <p>
-            質問はこれで以上です！
-            <br />
-            結果をチェックしてみましょう。
-          </p>
-          <p>
-            <SubmitButton answers={answers} submit={submit}>
-              何問正解したかチェック！
-            </SubmitButton>
-          </p>
-
-          {submitted ? (
-            <p className="font-bold tracking-tighter leading-tight md:pr-8 my-4">
-              <span className="text-red-500">{score}</span>問正解です!
-            </p>
-          ) : (
-            ""
-          )}
-        </div>
+        <ResultSummary
+          answers={answers}
+          submit={submit}
+          submitted={submitted}
+          score={score}
+        />
       </Container>
       {submitted ? (
         <Container>
-          <div className="text-left py-4 px-4 my-4">
-            <h3 className="text-2xl py-2">質問別の結果はこちら！</h3>
-            <ul className="text-xl">
-              {questions.map((question, index) => (
-                <li key={index}>
-                  <p>
-                    質問{index + 1}:{" "}
-                    <span className="text-red-500">
-                      {question.answer === answers[index] ? "正解" : "不正解"}
-                    </span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ResultDetail answers={answers} />
         </Container>
       ) : (
         <p></p>
