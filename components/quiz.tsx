@@ -73,19 +73,23 @@ function quiz() {
           {submitted ? score + "問正解です!" : ""}
         </p>
       </section>
-      <section className="text-left bg-gray-50 rounded-lg py-4 px-4 my-4">
-        <h3 className="text-2xl py-2">質問別の結果はこちら！</h3>
-        <ul className="text-xl">
-          {questions.map((question, index) => (
-            <li key={index}>
-              <p>
-                質問{index + 1}:{" "}
-                {question.answer === answers[index] ? "正解" : "不正解"}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {submitted ? (
+        <section className="text-left bg-gray-50 rounded-lg py-4 px-4 my-4">
+          <h3 className="text-2xl py-2">質問別の結果はこちら！</h3>
+          <ul className="text-xl">
+            {questions.map((question, index) => (
+              <li key={index}>
+                <p>
+                  質問{index + 1}:{" "}
+                  {question.answer === answers[index] ? "正解" : "不正解"}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : (
+        <p></p>
+      )}
     </div>
   );
 }
