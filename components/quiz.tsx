@@ -69,9 +69,14 @@ function quiz() {
             何問正解したかチェック！
           </SubmitButton>
         </p>
-        <p className="font-bold tracking-tighter leading-tight md:pr-8 my-4">
-          {submitted ? score + "問正解です!" : ""}
-        </p>
+
+        {submitted ? (
+          <p className="font-bold tracking-tighter leading-tight md:pr-8 my-4">
+            <span className="text-red-500">{score}</span>問正解です!
+          </p>
+        ) : (
+          ""
+        )}
       </section>
       {submitted ? (
         <section className="text-left bg-gray-50 rounded-lg py-4 px-4 my-4">
@@ -81,7 +86,9 @@ function quiz() {
               <li key={index}>
                 <p>
                   質問{index + 1}:{" "}
-                  {question.answer === answers[index] ? "正解" : "不正解"}
+                  <span className="text-red-500">
+                    {question.answer === answers[index] ? "正解" : "不正解"}
+                  </span>
                 </p>
               </li>
             ))}
