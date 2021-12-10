@@ -43,8 +43,9 @@ function quiz() {
         <Container key={index}>
           <Question
             key={index}
-            question_no={index}
+            index={index}
             question={question.text}
+            useImage={question.useImage}
             answers={answers}
             setAnswer={setAnswer}
             refs={refs}

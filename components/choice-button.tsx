@@ -1,10 +1,12 @@
+import { ReactNode } from "react";
+
 type Props = {
   setAnswer: (index: number, answer: string) => void;
   scrollToNext: () => void;
   index: number;
   answer: string;
   isSelected: boolean;
-  children: string;
+  children: ReactNode;
 };
 
 const ChoiceButton = (props: Props) => {
