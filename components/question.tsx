@@ -20,10 +20,7 @@ const Question = (props: Props) => {
   };
 
   return (
-    <section
-      ref={refs[question_no]}
-      className="bg-indigo-50 rounded-lg py-4 px-4 my-4"
-    >
+    <div ref={refs[question_no]} className="py-4 px-4 my-4">
       <h3 className="text-xl font-bold tracking-tighter leading-tight md:pr-8 my-4">
         <span className="text-gray-700">質問: {question_no + 1} </span>
         {question}
@@ -57,7 +54,7 @@ const Question = (props: Props) => {
           cc
         </ChoiceButton>
       </div>
-    </section>
+    </div>
   );
 };
 

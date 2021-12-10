@@ -2,7 +2,10 @@ import React from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
 import { useState, useRef, useCallback } from "react";
-import SubmitButton from "./submit-button";
+import Container from "./container";
+import Intro from "./intro";
+import ResultSummary from "./result-summary";
+import ResultDetail from "./result-detail";
 
 function quiz() {
   const refs = questions.map(() => useRef<HTMLDivElement>(null!));
@@ -21,53 +24,49 @@ function quiz() {
       return questions[index].answer === answer;
     }).length;
 
+    window.scrollBy({
+      top: 300,
+      left: 0,
+      behavior: "smooth",
+    });
+
     setSubmitted(true);
     setScore(score);
   };
 
   return (
-    <div className="max-w-sm mr-auto ml-auto">
-      <section className="bg-indigo-50 rounded-lg py-2 px-4">
-        <h1 className="text-2xl md:text-4xl font-bold">
-          『xxxx講座』
-          <br />
-          理解度クイズ
-        </h1>
-        <p>作成: xxxx</p>
-        <p>日本や世界に関するクイズです。</p>
-        <p>どの質問も3択です。</p>
-        <p>
-          クイズは全部で6問。
-          <strong>4問以上正解</strong>
-          できるでしょうか？
-        </p>
-      </section>
+    <main className="max-w-sm mr-auto ml-auto">
+      <Container>
+        <Intro />
+      </Container>
       {questions.map((question, index) => (
-        <Question
-          key={index}
-          question_no={index}
-          question={question.text}
-          answers={answers}
-          setAnswer={setAnswer}
-          refs={refs}
-        />
+        <Container key={index}>
+          <Question
+            key={index}
+            question_no={index}
+            question={question.text}
+            answers={answers}
+            setAnswer={setAnswer}
+            refs={refs}
+          />
+        </Container>
       ))}
-      <section className="text-xl text-center bg-indigo-50 rounded-lg py-2 px-4 my-10">
-        <p>
-          質問はこれで以上です！
-          <br />
-          結果をチェックしてみましょう。
-        </p>
-        <p>
-          <SubmitButton answers={answers} submit={submit}>
-            何問正解したかチェック！
-          </SubmitButton>
-        </p>
-        <p className="font-bold tracking-tighter leading-tight md:pr-8 my-4">
-          {submitted ? score + "問正解です!" : ""}
-        </p>
-      </section>
-    </div>
+      <Container>
+        <ResultSummary
+          answers={answers}
+          submit={submit}
+          submitted={submitted}
+          score={score}
+        />
+      </Container>
+      {submitted ? (
+        <Container>
+          <ResultDetail answers={answers} />
+        </Container>
+      ) : (
+        <p></p>
+      )}
+    </main>
   );
 }
 
