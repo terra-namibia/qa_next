@@ -45,7 +45,9 @@ function quiz() {
             key={index}
             index={index}
             question={question.text}
-            useImage={question.useImage}
+            useImageQuestion={question.useImageQuestion}
+            useImageChoices={question.useImageChoices}
+            choices={question.choices}
             answers={answers}
             setAnswer={setAnswer}
             refs={refs}
