@@ -7,7 +7,7 @@ import Intro from "./intro";
 import ResultSummary from "./result-summary";
 import ResultDetail from "./result-detail";
 
-function quiz() {
+const Quiz = () => {
   const refs = questions.map(() => useRef<HTMLDivElement>(null!));
   const [answers, setAnswers] = useState<Array<string>>([]);
   const setAnswer = (index: number, answer: string) => {
@@ -71,6 +71,6 @@ function quiz() {
       )}
     </main>
   );
-}
+};
 
-export default quiz;
+export default Quiz;
