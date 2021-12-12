@@ -35,7 +35,7 @@ const Question = (props: Props) => {
   return (
     <div ref={refs[index]} className="py-4 px-4 my-4">
       <h3 className="text-xl font-bold tracking-tighter leading-tight md:pr-8 my-4">
-        <span className="text-gray-700">質問: {index + 1} </span>
+        <span className="text-gray-700">質問{index + 1}: </span>
         {question}
       </h3>
       <div className="flex flex-col">
@@ -45,8 +45,8 @@ const Question = (props: Props) => {
               className="rounded-lg"
               src={`/img-q${index + 1}.jpg`}
               alt={`img-q${index + 1}`}
-              width={160}
-              height={160}
+              width={1388}
+              height={1038}
             />
           </div>
         ) : (
@@ -62,11 +62,12 @@ const Question = (props: Props) => {
         >
           {useImageChoices ? (
             <Image
-              className="rounded-lg"
               src={`/img-q${index + 1}-ca.jpg`}
               alt={`img-q${index + 1}-ca`}
-              width={160}
-              height={160}
+              className="rounded-lg"
+              width={2048}
+              height={2048}
+              objectFit="cover"
             />
           ) : (
             choices.a
@@ -81,11 +82,12 @@ const Question = (props: Props) => {
         >
           {useImageChoices ? (
             <Image
-              className="rounded-lg"
               src={`/img-q${index + 1}-cb.jpg`}
               alt={`img-q${index + 1}-cb`}
-              width={160}
-              height={160}
+              className="rounded-lg"
+              width={2048}
+              height={2048}
+              objectFit="cover"
             />
           ) : (
             choices.b
@@ -100,11 +102,12 @@ const Question = (props: Props) => {
         >
           {useImageChoices ? (
             <Image
-              className="rounded-lg"
               src={`/img-q${index + 1}-cc.jpg`}
               alt={`img-q${index + 1}-cc`}
-              width={160}
-              height={160}
+              className="rounded-lg"
+              width={2048}
+              height={2048}
+              objectFit="cover"
             />
           ) : (
             choices.c
