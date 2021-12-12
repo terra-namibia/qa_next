@@ -5,14 +5,25 @@ import Image from "next/image";
 type Props = {
   index: number;
   question: string;
-  useImage?: boolean;
+  choices: { a: string; b: string; c: string };
+  useImageQuestion?: boolean;
+  useImageChoices?: boolean;
   answers: Array<string>;
   setAnswer: (index: number, answer: string) => void;
   refs: Array<MutableRefObject<HTMLDivElement>>;
 };
 
 const Question = (props: Props) => {
-  const { index, question, useImage, answers, setAnswer, refs } = props;
+  const {
+    index,
+    question,
+    choices,
+    useImageQuestion,
+    useImageChoices,
+    answers,
+    setAnswer,
+    refs,
+  } = props;
 
   const scrollToNext = () => {
     refs[index + 1]?.current?.scrollIntoView({
@@ -28,7 +39,7 @@ const Question = (props: Props) => {
         {question}
       </h3>
       <div className="flex flex-col">
-        {useImage ? (
+        {useImageQuestion ? (
           <div className="flex justify-center my-4">
             <Image
               className="rounded-lg"
@@ -49,7 +60,17 @@ const Question = (props: Props) => {
           answer={"a"}
           isSelected={answers[index] === "a"}
         >
-          aa
+          {useImageChoices ? (
+            <Image
+              className="rounded-lg"
+              src={`/img-q${index + 1}-ca.jpg`}
+              alt={`img-q${index + 1}-ca`}
+              width={160}
+              height={160}
+            />
+          ) : (
+            choices.a
+          )}
         </ChoiceButton>
         <ChoiceButton
           setAnswer={setAnswer}
@@ -58,7 +79,17 @@ const Question = (props: Props) => {
           answer={"b"}
           isSelected={answers[index] === "b"}
         >
-          bb
+          {useImageChoices ? (
+            <Image
+              className="rounded-lg"
+              src={`/img-q${index + 1}-cb.jpg`}
+              alt={`img-q${index + 1}-cb`}
+              width={160}
+              height={160}
+            />
+          ) : (
+            choices.b
+          )}
         </ChoiceButton>
         <ChoiceButton
           setAnswer={setAnswer}
@@ -67,7 +98,17 @@ const Question = (props: Props) => {
           answer={"c"}
           isSelected={answers[index] === "c"}
         >
-          cc
+          {useImageChoices ? (
+            <Image
+              className="rounded-lg"
+              src={`/img-q${index + 1}-cc.jpg`}
+              alt={`img-q${index + 1}-cc`}
+              width={160}
+              height={160}
+            />
+          ) : (
+            choices.c
+          )}
         </ChoiceButton>
       </div>
     </div>
