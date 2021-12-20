@@ -1,6 +1,8 @@
 import ChoiceButton from "./choice-button";
 import { RefObject } from "react";
 import Image from "next/image";
+import smoothscroll from 'smoothscroll-polyfill';
+
 
 type Props = {
   index: number;
@@ -26,6 +28,8 @@ const Question = (props: Props) => {
   } = props;
 
   const scrollToNext = () => {
+    smoothscroll.polyfill();
+
     refs[index + 1]?.current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
