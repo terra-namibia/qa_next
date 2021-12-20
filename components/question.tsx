@@ -1,5 +1,5 @@
 import ChoiceButton from "./choice-button";
-import { useRef, createRef, MutableRefObject } from "react";
+import { RefObject } from "react";
 import Image from "next/image";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   useImageChoices?: boolean;
   answers: Array<string>;
   setAnswer: (index: number, answer: string) => void;
-  refs: Array<MutableRefObject<HTMLDivElement>>;
+  refs: Array<RefObject<HTMLDivElement>>;
 };
 
 const Question = (props: Props) => {

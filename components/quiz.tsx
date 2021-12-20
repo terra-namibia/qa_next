@@ -1,20 +1,19 @@
 import React from "react";
 import { questions } from "../lib/quiz";
 import Question from "./question";
-import { useState, useRef, useCallback } from "react";
+import { useState, createRef, useCallback } from "react";
 import Container from "./container";
 import Intro from "./intro";
 import ResultSummary from "./result-summary";
 import ResultDetail from "./result-detail";
 
 const Quiz = () => {
-  const refs = questions.map(() => useRef<HTMLDivElement>(null!));
+  const refs = questions.map(() => createRef<HTMLDivElement>());
   const [answers, setAnswers] = useState<Array<string>>([]);
   const setAnswer = (index: number, answer: string) => {
     const newAnswers = [...answers];
     newAnswers[index] = answer;
     setAnswers(newAnswers);
-    console.log(newAnswers);
   };
 
   const [submitted, setSubmitted] = useState<boolean>(false);
