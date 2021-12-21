@@ -1,5 +1,5 @@
 import React from "react";
-import { questions } from "../lib/quiz";
+import { questions } from "../lib/quiz_text";
 import Question from "./question";
 import { useState, createRef, useCallback } from "react";
 import Container from "./container";
@@ -9,8 +9,8 @@ import ResultDetail from "./result-detail";
 
 const Quiz = () => {
   const refs = questions.map(() => createRef<HTMLDivElement>());
-  const [answers, setAnswers] = useState<Array<string>>([]);
-  const setAnswer = (index: number, answer: string) => {
+  const [answers, setAnswers] = useState<Array<number>>([]);
+  const setAnswer = (index: number, answer: number) => {
     const newAnswers = [...answers];
     newAnswers[index] = answer;
     setAnswers(newAnswers);
@@ -18,7 +18,7 @@ const Quiz = () => {
 
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
-  const submit = (answers: Array<string>) => {
+  const submit = (answers: Array<number>) => {
     const score: number = answers.filter((answer, index) => {
       return questions[index].answer === answer;
     }).length;
@@ -58,6 +58,7 @@ const Quiz = () => {
           answers={answers}
           submit={submit}
           submitted={submitted}
+          questionCount={questions.length}
           score={score}
         />
       </Container>

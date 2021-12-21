@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
 type Props = {
-  setAnswer: (index: number, answer: string) => void;
+  setAnswer: (index: number, answer: number) => void;
   scrollToNext: () => void;
   index: number;
-  answer: string;
+  answer: number;
   isSelected: boolean;
   children: ReactNode;
 };
