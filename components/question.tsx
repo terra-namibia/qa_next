@@ -1,8 +1,7 @@
 import ChoiceButton from "./choice-button";
 import { RefObject } from "react";
 import Image from "next/image";
-import smoothscroll from 'smoothscroll-polyfill';
-
+import smoothscroll from "smoothscroll-polyfill";
 
 type Props = {
   index: number;

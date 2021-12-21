@@ -7,7 +7,8 @@ const Intro = () => (
       <br />
     </h1>
     {/* <p>作成: xxxx</p> */}
-    <Image src="/flag-namibia.jpg"
+    <Image
+      src="/flag-namibia.jpg"
       alt="/img-q0.jpg"
       width={1388}
       height={1038}
