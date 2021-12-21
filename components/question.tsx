@@ -6,11 +6,11 @@ import smoothscroll from "smoothscroll-polyfill";
 type Props = {
   index: number;
   question: string;
-  choices: { a: string; b: string; c: string };
+  choices: Array<string>;
   useImageQuestion?: boolean;
   useImageChoices?: boolean;
-  answers: Array<string>;
-  setAnswer: (index: number, answer: string) => void;
+  answers: Array<number>;
+  setAnswer: (index: number, answer: number) => void;
   refs: Array<RefObject<HTMLDivElement>>;
 };
 
@@ -60,8 +60,8 @@ const Question = (props: Props) => {
           setAnswer={setAnswer}
           scrollToNext={scrollToNext}
           index={index}
-          answer={"a"}
-          isSelected={answers[index] === "a"}
+          answer={0}
+          isSelected={answers[index] === 0}
         >
           {useImageChoices ? (
             <Image
@@ -73,15 +73,15 @@ const Question = (props: Props) => {
               objectFit="cover"
             />
           ) : (
-            choices.a
+            choices[0]
           )}
         </ChoiceButton>
         <ChoiceButton
           setAnswer={setAnswer}
           scrollToNext={scrollToNext}
           index={index}
-          answer={"b"}
-          isSelected={answers[index] === "b"}
+          answer={1}
+          isSelected={answers[index] === 1}
         >
           {useImageChoices ? (
             <Image
@@ -93,15 +93,15 @@ const Question = (props: Props) => {
               objectFit="cover"
             />
           ) : (
-            choices.b
+            choices[1]
           )}
         </ChoiceButton>
         <ChoiceButton
           setAnswer={setAnswer}
           scrollToNext={scrollToNext}
           index={index}
-          answer={"c"}
-          isSelected={answers[index] === "c"}
+          answer={2}
+          isSelected={answers[index] === 2}
         >
           {useImageChoices ? (
             <Image
@@ -113,7 +113,7 @@ const Question = (props: Props) => {
               objectFit="cover"
             />
           ) : (
-            choices.c
+            choices[2]
           )}
         </ChoiceButton>
       </div>
