@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Intro = () => (
   <div className="py-2 px-4">
     <h1 className="text-2xl md:text-4xl font-bold">
@@ -5,6 +7,13 @@ const Intro = () => (
       <br />
     </h1>
     {/* <p>作成: xxxx</p> */}
+    <Image
+      src="/flag-namibia.jpg"
+      alt="/img-q0.jpg"
+      width={1388}
+      height={1038}
+      objectFit="cover"
+    />
     <p>ナミビアに関するクイズです。</p>
     <p>どの質問も3択です。</p>
     <p>
