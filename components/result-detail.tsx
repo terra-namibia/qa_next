@@ -24,13 +24,19 @@ const ResultDetail = (props: Props) => {
       <ul className="text-xl">
         {questions.map((question, index) => (
           <li key={index}>
-            <button onClick={() => setShow(index)}>
+            <button
+              className="border-4 border-amber-700 font-semibold rounded-full py-2 px-4 mb-4 w-full"
+              onClick={() => setShow(index)}
+            >
               質問{index + 1}:{" "}
               {question.answer === answers[index] ? (
-                <span className="text-gray-400">正解</span>
+                <span className="text-gray-400">正解 </span>
               ) : (
-                <span className="text-red-400">不正解</span>
+                <span className="text-red-400">不正解 </span>
               )}
+              <span className="underline text-sm text-gray-400">
+                解説を見る
+              </span>
             </button>
             {shows[index] ? (
               <Container key={index}>
