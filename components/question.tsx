@@ -38,7 +38,7 @@ const Question = (props: Props) => {
 
   return (
     <div ref={refs[index]} className="py-4 px-4 my-4">
-      <h3 className="text-xl font-bold tracking-wide tracking-tighter leading-tight md:pr-8 my-4">
+      <h3 className="text-xl font-bold tracking-normal leading-tight md:pr-8 my-4">
         <span className="text-gray-700">質問{index + 1}: </span>
         {question}
       </h3>
