@@ -38,7 +38,7 @@ const Question = (props: Props) => {
 
   return (
     <div ref={refs[index]} className="py-4 px-4 my-4">
-      <h3 className="text-xl font-bold tracking-tighter leading-tight md:pr-8 my-4">
+      <h3 className="text-xl font-bold tracking-wide tracking-tighter leading-tight md:pr-8 my-4">
         <span className="text-gray-700">質問{index + 1}: </span>
         {question}
       </h3>
@@ -70,7 +70,7 @@ const Question = (props: Props) => {
               alt={`img-q${index + 1}-ca`}
               className="rounded-lg"
               width={2048}
-              height={2048}
+              height={1700}
               objectFit="cover"
             />
           ) : (
@@ -90,7 +90,7 @@ const Question = (props: Props) => {
               alt={`img-q${index + 1}-cb`}
               className="rounded-lg"
               width={2048}
-              height={2048}
+              height={1700}
               objectFit="cover"
             />
           ) : (
@@ -110,7 +110,7 @@ const Question = (props: Props) => {
               alt={`img-q${index + 1}-cc`}
               className="rounded-lg"
               width={2048}
-              height={2048}
+              height={1700}
               objectFit="cover"
             />
           ) : (
