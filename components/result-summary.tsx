@@ -3,30 +3,32 @@ import SubmitButton from "./submit-button";
 
 type Props = {
   children?: ReactNode;
-  answers: Array<string>;
-  submit: (answers: Array<string>) => void;
+  answers: Array<number>;
+  submit: (answers: Array<number>) => void;
   submitted: boolean;
+  questionCount: number;
   score: number;
 };
 
 const ResultSummary = (props: Props) => {
-  const { answers, submit, submitted, score } = props;
+  const { answers, submit, submitted, questionCount, score } = props;
   return (
     <div className="text-2xl text-center py-2 px-4 my-10">
       <p>
-        質問はこれで以上です！
+        質問はこれで以上です!
         <br />
         結果をチェックしてみましょう。
       </p>
       <p>
         <SubmitButton answers={answers} submit={submit}>
-          何問正解したかチェック！
+          何問正解したかチェック!
         </SubmitButton>
       </p>
 
       {submitted ? (
         <p className="font-bold md:pr-8 my-4">
-          <span className="text-red-500">{score}</span>問正解です!
+          {questionCount}問中<span className="text-red-500">{score}</span>
+          問正解でした!
         </p>
       ) : (
         ""

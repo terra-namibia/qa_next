@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 type Props = {
   children?: ReactNode;
-  answers: Array<string>;
-  submit: (answers: Array<string>) => void;
+  answers: Array<number>;
+  submit: (answers: Array<number>) => void;
 };
 
 const SubmitButton = ({ children, answers, submit }: Props) => (
