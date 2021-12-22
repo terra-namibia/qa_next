@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { questions } from "../lib/quiz_text";
+import { questions } from "../lib/quiz-text";
 import Commentary from "./commentary";
 import Container from "./container";
 
@@ -19,13 +19,15 @@ const ResultDetail = (props: Props) => {
 
   const { answers } = props;
   return (
-    <div className="text-left py-4 px-4 my-4">
-      <h3 className="text-2xl py-2">質問別の結果はこちら!</h3>
-      <ul className="text-xl">
+    <div className="py-4 px-4 my-4">
+      <h3 className="text-gray-600 text-2xl text-center py-2">
+        質問別の結果はこちら!
+      </h3>
+      <ul className="text-xl text-left">
         {questions.map((question, index) => (
           <li key={index}>
             <button
-              className="border-4 border-amber-700 font-semibold rounded-full py-2 px-4 mb-4 w-full"
+              className="text-gray-500 border-4 border-amber-700 font-semibold rounded-full py-2 px-4 mb-4 w-full"
               onClick={() => setShow(index)}
             >
               質問{index + 1}:{" "}
