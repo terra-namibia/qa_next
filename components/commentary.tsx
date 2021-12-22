@@ -25,13 +25,13 @@ const Commentary = (props: Props) => {
 
   return (
     <div className="px-4 text-base text-gray-500">
-      <p className="md:pr-8 my-2">
+      <p className="md:pr-8">
         <span className="font-bold">(質問) </span>
         {question}
       </p>
       <div className="flex flex-col">
         {useImageQuestion ? (
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center mt-1 mb-2">
             <Image
               className="rounded-lg"
               src={`/img-q${index + 1}.jpg`}
@@ -42,11 +42,25 @@ const Commentary = (props: Props) => {
           </div>
         ) : null}
       </div>
-      <p className="mb-3">
+      <p className="mt-2">
         <span className="font-bold">(正解) </span>
         {choices[answer]}
       </p>
-      <p className="mb-4">
+      <div className="flex flex-col">
+        {useImageChoices ? (
+          <div className="flex justify-center mb-2">
+            <Image
+              src={`/img-q${index + 1}-c${answer}.jpg`}
+              alt={`img-q${index + 1}-c${answer}`}
+              className="rounded-lg"
+              width={1388}
+              height={1038}
+              objectFit="cover"
+            />
+          </div>
+        ) : null}
+      </div>
+      <p className="mt-2 mb-4">
         <span className="font-bold">(解説) </span>
         {commentary}
       </p>
