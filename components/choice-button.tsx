@@ -13,8 +13,8 @@ const ChoiceButton = (props: Props) => {
   const { setAnswer, scrollToNext, index, answer, isSelected, children } =
     props;
   const style_normal =
-    "text-blue-700 hover:bg-blue-500 hover:text-white hover:border-transparent";
-  const style_choiced = "text-white bg-blue-500 border-transparent";
+    "text-blue-700 hover:bg-blue-300 hover:text-white hover:border-transparent";
+  const style_choiced = "text-white bg-blue-400 border-transparent";
 
   return (
     <button
