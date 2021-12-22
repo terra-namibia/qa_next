@@ -1,5 +1,5 @@
 import React from "react";
-import { questions } from "../lib/quiz_text";
+import { questions } from "../lib/quiz-text";
 import Question from "./question";
 import { useState, createRef, useCallback } from "react";
 import Container from "./container";

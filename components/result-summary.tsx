@@ -13,9 +13,9 @@ type Props = {
 const ResultSummary = (props: Props) => {
   const { answers, submit, submitted, questionCount, score } = props;
   return (
-    <div className="text-2xl text-center py-2 px-4 my-10">
+    <div className="text-2xl text-center text-gray-600 py-2 px-4 my-10">
       <p>
-        質問はこれで以上です!
+        クイズはこれで終わりです!
         <br />
         結果をチェックしてみましょう。
       </p>
@@ -26,13 +26,11 @@ const ResultSummary = (props: Props) => {
       </p>
 
       {submitted ? (
-        <p className="font-bold md:pr-8 my-4">
-          {questionCount}問中<span className="text-red-500">{score}</span>
+        <p className="tracking-widest font-bold md:pr-8 my-4">
+          {questionCount}問中<span className="text-blue-600">{score}</span>
           問正解でした!
         </p>
-      ) : (
-        ""
-      )}
+      ) : null}
     </div>
   );
 };

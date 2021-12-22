@@ -65,8 +65,8 @@ const Question = (props: Props) => {
         >
           {useImageChoices ? (
             <Image
-              src={`/img-q${index + 1}-ca.jpg`}
-              alt={`img-q${index + 1}-ca`}
+              src={`/img-q${index + 1}-c0.jpg`}
+              alt={`img-q${index + 1}-c0`}
               className="rounded-lg"
               width={2048}
               height={1700}
@@ -85,8 +85,8 @@ const Question = (props: Props) => {
         >
           {useImageChoices ? (
             <Image
-              src={`/img-q${index + 1}-cb.jpg`}
-              alt={`img-q${index + 1}-cb`}
+              src={`/img-q${index + 1}-c1.jpg`}
+              alt={`img-q${index + 1}-c1`}
               className="rounded-lg"
               width={2048}
               height={1700}
@@ -105,8 +105,8 @@ const Question = (props: Props) => {
         >
           {useImageChoices ? (
             <Image
-              src={`/img-q${index + 1}-cc.jpg`}
-              alt={`img-q${index + 1}-cc`}
+              src={`/img-q${index + 1}-c2.jpg`}
+              alt={`img-q${index + 1}-c2`}
               className="rounded-lg"
               width={2048}
               height={1700}
