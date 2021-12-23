@@ -3,6 +3,7 @@ export type Question = {
   short: string;
   useImageQuestion?: boolean;
   useImageChoices?: boolean;
+  useImageAnswer?: boolean;
   choices: Array<string>;
   answer: number;
   commentary: string;

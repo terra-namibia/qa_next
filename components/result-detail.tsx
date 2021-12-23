@@ -50,6 +50,7 @@ const ResultDetail = (props: Props) => {
                   commentary={question.commentary}
                   useImageQuestion={question.useImageQuestion}
                   useImageChoices={question.useImageChoices}
+                  useImageAnswer={question.useImageAnswer}
                   choices={question.choices}
                   answers={answers}
                 />
