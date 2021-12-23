@@ -36,7 +36,7 @@ const Quiz = () => {
   return (
     <main className="max-w-sm mr-auto ml-auto">
       <Container>
-        <Intro />
+        <Intro questionCount={questions.length} />
       </Container>
       {questions.map((question, index) => (
         <Container key={index}>
