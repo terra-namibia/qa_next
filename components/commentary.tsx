@@ -8,6 +8,7 @@ type Props = {
   commentary: string;
   useImageQuestion?: boolean;
   useImageChoices?: boolean;
+  useImageAnswer?: boolean;
   answers: Array<number>;
 };
 
@@ -20,6 +21,7 @@ const Commentary = (props: Props) => {
     commentary,
     useImageQuestion,
     useImageChoices,
+    useImageAnswer,
     answers,
   } = props;
 
@@ -52,6 +54,18 @@ const Commentary = (props: Props) => {
             <Image
               src={`/img-q${index + 1}-c${answer}.jpg`}
               alt={`img-q${index + 1}-c${answer}`}
+              className="rounded-lg"
+              width={1388}
+              height={1038}
+              objectFit="cover"
+            />
+          </div>
+        ) : null}
+        {useImageAnswer ? (
+          <div className="flex justify-center mb-2">
+            <Image
+              src={`/img-a${index + 1}.jpg`}
+              alt={`img-a${index + 1}`}
               className="rounded-lg"
               width={1388}
               height={1038}
