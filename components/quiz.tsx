@@ -34,7 +34,7 @@ const Quiz = () => {
   };
 
   return (
-    <main className="max-w-sm mr-auto ml-auto">
+    <main className="max-w-lg mr-auto ml-auto">
       <Container>
         <Intro questionCount={questions.length} />
       </Container>
