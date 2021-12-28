@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import SubmitButton from "./submit-button";
+import Image from "next/image";
 
 type Props = {
   children?: ReactNode;
@@ -30,6 +31,20 @@ const ResultSummary = (props: Props) => {
           {questionCount}問中<span className="text-blue-600">{score}</span>
           問正解でした!
         </p>
+      ) : null}
+      {submitted && questionCount === score ? (
+        <div className="flex justify-center mb-2">
+          <Image
+            src={`/congrats.jpg`}
+            alt={`congrats`}
+            className="rounded-lg"
+            width={1388}
+            height={1038}
+            objectFit="cover"
+          />
+        </div>
+      ) : submitted ? (
+        <span className="text-gray-400">詳しくは解説をご覧ください</span>
       ) : null}
     </div>
   );
