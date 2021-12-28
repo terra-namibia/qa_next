@@ -35,15 +35,16 @@ const Question = (props: Props) => {
     });
   };
 
+  const useImageChoicesWidth = 500;
+  const useImageChoicesHeight = 300;
+
   return (
     <div ref={refs[index]} className="py-4 px-4 my-4">
-      <h3 className="text-xl font-bold md:pr-8 my-4">
-        <span className="text-gray-700">質問{index + 1}: </span>
+      <h3 className="bg-purple-100 rounded-lg text-xl font-bold md:pr-8 p-4 my-4 py-4">
+        <span className="text-gray-700 py-4">質問{index + 1}: </span>
         {question}
-      </h3>
-      <div className="flex flex-col">
         {useImageQuestion ? (
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center my-2">
             <Image
               className="rounded-lg"
               src={`/img-q${index + 1}.jpg`}
@@ -52,10 +53,9 @@ const Question = (props: Props) => {
               height={1038}
             />
           </div>
-        ) : (
-          ""
-        )}
-
+        ) : null}
+      </h3>
+      <div className="flex flex-col">
         <ChoiceButton
           setAnswer={setAnswer}
           scrollToNext={scrollToNext}
@@ -68,8 +68,8 @@ const Question = (props: Props) => {
               src={`/img-q${index + 1}-c0.jpg`}
               alt={`img-q${index + 1}-c0`}
               className="rounded-lg"
-              width={2048}
-              height={1700}
+              width={useImageChoicesWidth}
+              height={useImageChoicesHeight}
               objectFit="cover"
             />
           ) : (
@@ -88,8 +88,8 @@ const Question = (props: Props) => {
               src={`/img-q${index + 1}-c1.jpg`}
               alt={`img-q${index + 1}-c1`}
               className="rounded-lg"
-              width={2048}
-              height={1700}
+              width={useImageChoicesWidth}
+              height={useImageChoicesHeight}
               objectFit="cover"
             />
           ) : (
@@ -108,8 +108,8 @@ const Question = (props: Props) => {
               src={`/img-q${index + 1}-c2.jpg`}
               alt={`img-q${index + 1}-c2`}
               className="rounded-lg"
-              width={2048}
-              height={1700}
+              width={useImageChoicesWidth}
+              height={useImageChoicesHeight}
               objectFit="cover"
             />
           ) : (
