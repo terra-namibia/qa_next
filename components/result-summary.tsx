@@ -33,7 +33,7 @@ const ResultSummary = (props: Props) => {
         </p>
       ) : null}
       {submitted && questionCount === score ? (
-        <div className="flex justify-center mb-2">
+        <div className=" mb-2">
           <Image
             src={`/congrats.jpg`}
             alt={`congrats`}
@@ -42,9 +42,24 @@ const ResultSummary = (props: Props) => {
             height={1038}
             objectFit="cover"
           />
+          <p className="text-gray-400 text-xl">ぜひ解説もご覧ください！</p>
         </div>
       ) : submitted ? (
-        <span className="text-gray-400">詳しくは解説をご覧ください</span>
+        <div className=" mb-2">
+          <Image
+            src={`/otsu.jpg`}
+            alt={`otsu`}
+            className="rounded-lg"
+            width={1388}
+            height={1038}
+            objectFit="cover"
+          />
+          <p className="text-gray-400 text-xl">
+            お疲れ様でした。
+            <br />
+            詳しくは解説をご覧ください！
+          </p>
+        </div>
       ) : null}
     </div>
   );
