@@ -6,6 +6,7 @@ import Container from "./container";
 import Intro from "./intro";
 import ResultSummary from "./result-summary";
 import ResultDetail from "./result-detail";
+import ResultShare from "./result-share";
 
 const Quiz = () => {
   const refs = questions.map(() => createRef<HTMLDivElement>());
@@ -32,6 +33,7 @@ const Quiz = () => {
     setSubmitted(true);
     setScore(score);
   };
+  const message = `${questions.length}問中 ${score}問正解 でした!\n`;
 
   return (
     <main className="max-w-lg mr-auto ml-auto">
@@ -65,6 +67,7 @@ const Quiz = () => {
       {submitted ? (
         <Container>
           <ResultDetail answers={answers} />
+          <ResultShare message={message} />
         </Container>
       ) : (
         <p></p>

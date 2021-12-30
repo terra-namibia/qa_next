@@ -18,6 +18,7 @@ const ResultDetail = (props: Props) => {
   };
 
   const { answers } = props;
+
   return (
     <div className="py-4 px-4 my-4">
       <h3 className="text-gray-600 text-2xl text-center py-2">
