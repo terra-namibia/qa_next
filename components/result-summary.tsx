@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import SubmitButton from "./submit-button";
 import Image from "next/image";
+import { ScaleFade } from "@chakra-ui/react";
 
 type Props = {
   children?: ReactNode;
@@ -33,18 +34,41 @@ const ResultSummary = (props: Props) => {
         </p>
       ) : null}
       {submitted && questionCount === score ? (
-        <div className="flex justify-center mb-2">
+        <div className=" mb-2">
+          <ScaleFade
+            in={submitted}
+            initialScale={0.1}
+            transition={{
+              enter: { duration: 6, delay: 2 },
+            }}
+          >
+            <Image
+              src={`/congrats.jpg`}
+              alt={`congrats`}
+              className="rounded-lg"
+              width={1388}
+              height={1038}
+              objectFit="cover"
+            />
+          </ScaleFade>
+          <p className="text-gray-400 text-xl">ぜひ解説もご覧ください！</p>
+        </div>
+      ) : submitted ? (
+        <div className=" mb-2">
           <Image
-            src={`/congrats.jpg`}
-            alt={`congrats`}
+            src={`/otsu.jpg`}
+            alt={`otsu`}
             className="rounded-lg"
             width={1388}
             height={1038}
             objectFit="cover"
           />
+          <p className="text-gray-400 text-xl">
+            お疲れ様でした。
+            <br />
+            詳しくは解説をご覧ください！
+          </p>
         </div>
-      ) : submitted ? (
-        <span className="text-gray-400">詳しくは解説をご覧ください</span>
       ) : null}
     </div>
   );
