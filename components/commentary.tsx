@@ -27,7 +27,7 @@ const Commentary = (props: Props) => {
 
   return (
     <div className="px-4 text-base text-gray-500">
-      <p className="md:pr-8">
+      <p>
         <span className="font-bold">(質問) </span>
         {question}
       </p>
