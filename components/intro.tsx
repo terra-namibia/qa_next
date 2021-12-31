@@ -7,8 +7,8 @@ type Props = {
 const Intro = (props: Props) => {
   const { questionCount } = props;
   return (
-    <div className="py-2 px-4">
-      <h1 className="text-4xl font-bold text-center">
+    <div className="py-4 px-4">
+      <h1 className="text-4xl font-bold text-center mt-4">
         ナミビア検定
         <br />
       </h1>
