@@ -39,8 +39,8 @@ const Question = (props: Props) => {
   const useImageChoicesHeight = 300;
 
   return (
-    <div ref={refs[index]} className="py-4 px-4 my-4">
-      <h3 className="bg-purple-100 rounded-lg text-xl font-bold md:pr-8 p-4 my-4 py-4">
+    <div ref={refs[index]} className="py-4 px-4 my-6">
+      <h3 className="bg-purple-100 rounded-lg text-xl font-bold p-4 my-4">
         <span className="text-gray-700 py-4">質問{index + 1}: </span>
         {question}
         {useImageQuestion ? (

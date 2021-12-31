@@ -28,7 +28,7 @@ const ResultSummary = (props: Props) => {
       </p>
 
       {submitted ? (
-        <p className="tracking-widest font-bold md:pr-8 my-4">
+        <p className="tracking-widest font-bold my-4">
           {questionCount}問中<span className="text-blue-600">{score}</span>
           問正解でした!
         </p>
