@@ -7,6 +7,7 @@ import Intro from "./intro";
 import ResultSummary from "./result-summary";
 import ResultDetail from "./result-detail";
 import ResultShare from "./result-share";
+import { event } from "../lib/gtag";
 
 const Quiz = () => {
   const refs = questions.map(() => createRef<HTMLDivElement>());
@@ -28,6 +29,13 @@ const Quiz = () => {
       top: 300,
       left: 0,
       behavior: "smooth",
+    });
+
+    // Analyticsに送信する情報
+    event({
+      action: "click_submit",
+      category: "score",
+      label: score, //
     });
 
     setSubmitted(true);
