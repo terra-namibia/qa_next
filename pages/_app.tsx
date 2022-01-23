@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   gtag('js', new Date());
                   gtag('config', '${GA_ID}', {
                     page_path: window.location.pathname,
-                    ‘debug_mode’:true
+                    'debug_mode':true
                   });`,
               }}
             />
