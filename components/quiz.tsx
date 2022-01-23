@@ -35,7 +35,8 @@ const Quiz = () => {
     event({
       action: "click_submit",
       category: "score",
-      label: score, //
+      label: "score",
+      value: score,
     });
 
     setSubmitted(true);
