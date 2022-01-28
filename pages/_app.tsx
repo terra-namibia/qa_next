@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { GA_ID, existsGaId, pageview } from "../lib/gtag";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -48,10 +49,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         )}
         <title>Quiz</title>
       </Head>
-
-      <ChakraProvider>
-        <Component {...pageProps} />
-      </ChakraProvider>
+      <SessionProvider session={pageProps.session}>
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </SessionProvider>
     </>
   );
 }
