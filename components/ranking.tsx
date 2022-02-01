@@ -6,7 +6,7 @@ type Props = {
   scores?: Array<ScoreType>;
 };
 
-const Ranking = memo((props: Props) => {
+const Ranking = (props: Props) => {
   const { scores } = props;
 
   return (
@@ -30,6 +30,6 @@ const Ranking = memo((props: Props) => {
       </table>
     </div>
   );
-});
+};
 
-export default Ranking;
+export default memo(Ranking);

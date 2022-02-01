@@ -6,7 +6,7 @@ type Props = {
   index: number;
 };
 
-const Score = memo((props: Props) => {
+const Score = (props: Props) => {
   const { score, index } = props;
   return (
     <tr>
@@ -16,6 +16,6 @@ const Score = memo((props: Props) => {
       <td className="border px-4 py-2 text-xs">{score.date}</td>
     </tr>
   );
-});
+};
 
-export default Score;
+export default memo(Score);

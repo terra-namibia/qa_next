@@ -7,7 +7,7 @@ type Props = {
   questionCount: number;
 };
 
-const Intro = memo((props: Props) => {
+const Intro = (props: Props) => {
   const { questionCount } = props;
   const [show, setShow] = useState<boolean>(false);
   const { getScores, scores } = useScores();
@@ -47,6 +47,6 @@ const Intro = memo((props: Props) => {
       </button>
     </div>
   );
-});
+};
 
-export default Intro;
+export default memo(Intro);
