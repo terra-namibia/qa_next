@@ -9,12 +9,12 @@ type Props = {
 };
 
 const ResultDetail = (props: Props) => {
-  const [shows, setShows] = useState<Array<boolean>>([false]);
+  const [commentShows, setCommentShows] = useState<Array<boolean>>([false]);
 
-  const setShow = (index: number) => {
-    const newShows = [...shows];
-    newShows[index] = !newShows[index];
-    setShows(newShows);
+  const switchCommentShows = (index: number) => {
+    const newCommentShows = [...commentShows];
+    newCommentShows[index] = !newCommentShows[index];
+    setCommentShows(newCommentShows);
   };
 
   const { answers } = props;
@@ -29,7 +29,7 @@ const ResultDetail = (props: Props) => {
           <li key={index}>
             <button
               className="text-gray-500 border-4 border-amber-700 font-semibold rounded-full py-2 px-4 mb-4 w-full"
-              onClick={() => setShow(index)}
+              onClick={() => switchCommentShows(index)}
             >
               質問{index + 1}:{" "}
               {question.answer === answers[index] ? (
@@ -41,7 +41,7 @@ const ResultDetail = (props: Props) => {
                 解説を見る
               </span>
             </button>
-            {shows[index] ? (
+            {commentShows[index] ? (
               <Container key={index}>
                 <Commentary
                   key={index}
