@@ -1,9 +1,11 @@
 import React from "react";
+import { useState, createRef } from "react";
+import { useSession } from "next-auth/react";
 import { questions } from "../lib/quiz-text";
-import Question from "./question";
-import { useState, createRef, useCallback } from "react";
 import Container from "./container";
 import Intro from "./intro";
+import Login from "./login";
+import Question from "./question";
 import ResultSummary from "./result-summary";
 import ResultDetail from "./result-detail";
 import ResultShare from "./result-share";
@@ -20,6 +22,12 @@ const Quiz = () => {
 
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
+
+  const { data: session } = useSession();
+  const [userName, setUserName] = useState<string | null | undefined>(
+    session?.user?.name
+  );
+
   const submit = (answers: Array<number>) => {
     const score: number = answers.filter((answer, index) => {
       return questions[index].answer === answer;
@@ -41,14 +49,19 @@ const Quiz = () => {
 
     setSubmitted(true);
     setScore(score);
+    setUserName(session?.user?.name);
   };
   const message = `${questions.length}問中 ${score}問正解 でした!\n`;
 
   return (
-    <main className="max-w-lg mr-auto ml-auto">
+    <main className="max-w-xl mr-auto ml-auto">
       <Container>
         <Intro questionCount={questions.length} />
       </Container>
+      <Container>
+        <Login />
+      </Container>
+
       {questions.map((question, index) => (
         <Container key={index}>
           <Question
@@ -71,6 +84,8 @@ const Quiz = () => {
           submitted={submitted}
           questionCount={questions.length}
           score={score}
+          userName={userName}
+          setUserName={setUserName}
         />
       </Container>
       {submitted ? (
