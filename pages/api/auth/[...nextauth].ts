@@ -11,7 +11,6 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      //   console.log("サインイン");
       return true;
     },
     async jwt({ token, user, account, profile, isNewUser }) {
