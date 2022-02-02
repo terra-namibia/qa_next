@@ -41,9 +41,11 @@ const ResultSummary = (props: Props) => {
     user_name: string | null | undefined
   ) => {
     const URL = process.env.NEXT_PUBLIC_URL_SCORES || "";
+    const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || "";
 
     axios
       .post(URL, {
+        token: TOKEN,
         score: {
           score: score,
         },
