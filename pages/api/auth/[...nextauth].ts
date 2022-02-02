@@ -24,8 +24,11 @@ export default NextAuth({
       //   console.log(`session:${session}`);
       session.accessToken = token.accessToken;
       const URL = process.env.URL_USERS || "";
+      const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || "";
+
       axios
         .post(URL, {
+          token: TOKEN,
           user: {
             user_name: session?.user?.name,
             auth_provider: "GitHub",
