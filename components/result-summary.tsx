@@ -40,7 +40,7 @@ const ResultSummary = (props: Props) => {
     score: number,
     user_name: string | null | undefined
   ) => {
-    const URL = process.env.NEXT_PUBLIC_URL_SCORES || "";
+    const URL = process.env.NEXT_PUBLIC_URL_POST_SCORES || "";
     const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN || "";
 
     axios
@@ -96,7 +96,7 @@ const ResultSummary = (props: Props) => {
               value={userName || ""}
               onChange={onChangeUserName}
               className="rounded-md pl-1 mr-4 border-4"
-              disabled={true}
+              disabled={session === undefined ? true : false}
             />
             <button
               onClick={() => registerScores(score, userName)}
