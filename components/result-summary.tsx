@@ -96,7 +96,7 @@ const ResultSummary = (props: Props) => {
               value={userName || ""}
               onChange={onChangeUserName}
               className="rounded-md pl-1 mr-4 border-4"
-              disabled={session === undefined ? true : false}
+              disabled={true}
             />
             <button
               onClick={() => registerScores(score, userName)}
