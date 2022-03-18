@@ -105,6 +105,7 @@ const ResultSummary = (props: Props) => {
                   ? style_button_authenticated
                   : style_button_not_authenticated
               } rounded-full py-2 px-4 mt-4 mb-1 text-base tracking-wider font-semibold `}
+              disabled={session === undefined ? true : false}
               style={{ pointerEvents: session === undefined ? "none" : "auto" }}
             >
               <p className="px-3">結果を記録する</p>
