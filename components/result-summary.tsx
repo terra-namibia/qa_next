@@ -65,7 +65,7 @@ const ResultSummary = (props: Props) => {
         if (error.response?.statusText === "Unauthorized") {
           setMessage("ごめんなさい、ログインしたユーザで記録をお願いします。");
         } else {
-          setMessage("記録できません！");
+          setMessage("ごめんなさい、ログインしたユーザで記録をお願いします。");
         }
       });
   };
