@@ -23,7 +23,7 @@ const Ranking = (props: Props) => {
         <tbody>
           {scores
             ? scores.map((score, index) => (
-                <Score score={score} index={index} key={index} />
+                <Score data={score} index={index} key={index} />
               ))
             : null}
         </tbody>
